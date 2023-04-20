@@ -22,9 +22,9 @@ while True:
     print(event, values)
     match event:
         case "Extract":
-            if values["zip_file"] == '':
+            if not values["zip_file"]:
                 sg.popup("Please select file zip first.", font=("Helvetica", 11))
-            elif values["folder"] == '':
+            elif not values["folder"]:
                 sg.popup("Please select folder first.", font=("Helvetica", 11))
             else:
                 archivepath = values['zip_file']
