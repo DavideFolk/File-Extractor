@@ -20,9 +20,18 @@ window = sg.Window("File Extractor", layout=[[label1, input1, choose_button1],
 while True:
     event, values = window.read()
     print(event, values)
-    archivepath = values['zip_file']
-    dest_dir = values['folder']
-    zip_extractor.extract_archive(archivepath, dest_dir)
-    window['output'].update(value="Extraction Completed!")
+    match event:
+        case "Extract":
+            if values["zip_file"] == '':
+                sg.popup("Please select file zip first.", font=("Helvetica", 11))
+            elif values["folder"] == '':
+                sg.popup("Please select folder first.", font=("Helvetica", 11))
+            else:
+                archivepath = values['zip_file']
+                dest_dir = values['folder']
+                zip_extractor.extract_archive(archivepath, dest_dir)
+                window['output'].update(value="Extraction Completed!")
+        case sg.WIN_CLOSED:
+            break
 
 window.close()
