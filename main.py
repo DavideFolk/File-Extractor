@@ -11,7 +11,7 @@ input2 = sg.Input()
 choose_button2 = sg.FolderBrowse("Choose", key="folder")
 
 extract_button = sg.Button("Extract")
-output_label = sg.Text(key="output", text_color="green")
+output_label = sg.Text(key="output", text_color="blue")
 
 window = sg.Window("File Extractor", layout=[[label1, input1, choose_button1],
                                              [label2, input2, choose_button2],
